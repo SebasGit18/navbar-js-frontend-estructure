@@ -34,7 +34,9 @@ export async function loadCards(containerSelector, cardIds = []){
             .replace("{{icon2}}",card.icon2)
             .replace("{{description}}", card.description);
 
-            container.innerHTML += html;
+            // Agregamos la card al contenedor en el DOM
+            // container.innerHTML += html;
+            container.insertAdjacentHTML("beforeend", html)
         });
     }catch(error){
         console.error("Error cargando las cards",error)
