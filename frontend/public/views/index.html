@@ -12,7 +12,7 @@
     <!-- Script para cargar todas las cards -->
     <script type="module">
         import {loadCards} from "/frontend/public/js/components/card.js";
-        loadCards(".cards-container");//Clase para cargar todas las cards
+        loadCards(".services__cards-container");//Clase para cargar todas las cards
     </script>
 
 
@@ -27,11 +27,14 @@
         <div class="hero__content"></div>
     </section>
 
-    <!-- section card -->
-    <section class="cards-container">
+    <main class="services">
+        <!-- section card -->
+        <section class="services__cards-container"></section>
 
-    </section>
-
+        <!-- contact-form -->
+        <form class="services__form-container"></form>  
+    </main>
+    
     <h1>Estoy en Inicio</h1>
 
 </body>

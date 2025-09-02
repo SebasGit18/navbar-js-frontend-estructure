@@ -1,4 +1,9 @@
-.cards-container {
+.services {
+    display: flex;
+    flex-direction: column;
+}
+
+.services__cards-container {
     display: grid;
     gap: 24px;
     justify-content: center;
@@ -7,7 +12,7 @@
 }
 
 @media (width > 640px) {
-    .cards-container {
+    .services__cards-container {
         grid-template-columns: repeat(2, 1fr);
         max-width: 90%;
         margin: 100px auto 0;
@@ -15,8 +20,8 @@
 }
 
 @media (width > 1024px) {
-    .cards-container {
-        grid-template-columns: repeat(3, 1fr);
+    .services__cards-container {
+        grid-template-columns: repeat(4, 1fr);
         max-width: 90%;
     }
 }
@@ -27,7 +32,7 @@
     padding: 24px;
     text-align: center;
     /* Esta medida de 320px es porque el celular comercial más pequeño que se vende en la actualida tiene esta medida */
-    min-width: 320px;
+    min-width: 200px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -59,3 +64,15 @@
     font-size: var(--fs-xs);
     line-height: 1.5;
 }
+
+/* === Breakpoints === */
+
+/* 
+Alias       Max-width       Uso típico
+
+sm          640px           Télefonos grandes
+md          768px           Tablets
+lg          1024px          Laptops
+xl          1280px          Desktop
+2xl         1536px          Big screen
+*/
