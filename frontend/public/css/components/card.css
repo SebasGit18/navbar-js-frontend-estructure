@@ -7,7 +7,7 @@
     display: grid;
     gap: 24px;
     justify-content: center;
-    border: 1px solid var(--terciary-200);
+    border: 1px solid var(--terciary-1000);
     padding: 24px;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .card {
-    border: 1px solid var(--terciary-200);
+    border: 1px solid var(--terciary-1000);
     border-radius: 12px;
     padding: 24px;
     text-align: center;

@@ -1,3 +1,38 @@
+// Lógica del formulario de contacto del proyecto Freelancer
+
+// El objetivo es poder manipular los datos que se registran en el formulario
+// Explicación a fondo de las siguientes dos lineas de código
+    // === const formdata = new FormData(form);
+    // const = data = Object.fromEntries(formdata);
+
+// Qué significa new?
+// En javascript, la palabra reservada new sirve para crear una nueva instancia de un objeto a partir de una función constructora o una clase.
+// FormData(form) = [
+//     ["Nombre", "Edwar Velásquez"]
+//     ["Teléfono", "3165161256"]
+//     ["Correo electrónico", "ricoprogramar@gmail.com"]
+//     ["Mensaje", "Hola que tal?, requiero información"]
+// ]
+
+// // Ahora tranformo esos datos en un objeto JS, con esta linea código const data = Object.fromEntries(formdata);
+
+// data = {
+//     Nombre: "Edwar Velásquez",
+//     Teléfono: "3165161256",
+//     Correo: "ricoprogramar@gmail.com",
+//     Mensaje: "Hola que tal?, requiero información"
+// }
+
+// // Por ultimo convierto ese objeto JS en un JSON
+// {
+//     Nombre: "Edwar Velásquez",
+//     Teléfono: "3165161256",
+//     Correo: "ricoprogramar@gmail.com",
+//     Mensaje: "Hola que tal?, requiero información"
+// }
+
+// const {FormData} = require("undici-types");
+
 // Espera que el DOM este completamente cargado antes de ejecutar el script
 document.addEventListener('DOMContentLoaded', () =>{
     // Esto selecciona el formulario con la clase contact-form__form
@@ -15,10 +50,24 @@ document.addEventListener('DOMContentLoaded', () =>{
             const data = Object.fromEntries(formdata);
             
             try{
-
-                const response 
+                const response = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    // Convierte el objeto de datos del formulario a formato JSO
+                    body: JSON.stringify(data),
+                });
+                
+                // Verifica si la respuesta es éxitosa (código 200-299)
+                if (response.ok) {
+                    alert("Mensaje enviado con éxito");
+                    form.reset();
+                } else {
+                    alert("Hubo un problema al enviar el mensaje") // Notifica de un error en el servidor
+                }
+            }catch (error) {
+                console.error(error);
+                alert("Error de conexión")
             }
-            catch
-        })
-    }
+        });
+    };
 });
